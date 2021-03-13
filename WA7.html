@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>WA7 Submission<h1>
+<p>Below are all of the versions Chronologically!</p>
+
+<h2>Version 1</h2>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+<canvas id="myChart1" width="350" height="200"></canvas>
+<script>
+var ctx = document.getElementById('myChart1').getContext('2d');
+var myChart1 = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Color 1', 'Color 2', 'Color 3', 'Color 4', 'Color 5', 'Color 6'],
+        datasets: [{
+            label: '# of Votes',
+            data: [2, 5, 8, 11, 14, 17],
+            backgroundColor: [
+                'rgba(55, 199, 232, 0.2)',
+                'rgba(80, 162, 135, 0.2)',
+                'rgba(255, 26, 86, 0.2)',
+                'rgba(75, 92, 192, 0.2)',
+                'rgba(255, 255, 155, 0.2)',
+                'rgba(195, 19, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+<h2>Version 2</h2>
+<p>I decided to give each of the colors context through naming them and gave each one their representative color that is easy to keep track, I also thought a pie chart was easier to read.</p>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+<canvas id="myChart" width="350" height="200"></canvas>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Xbox', 'Playstation', 'PC', 'Nintendo', 'Mobile', 'Board'],
+        datasets: [{
+            label: 'Gaming Platform Votes',
+            data: [11, 10, 14, 8, 6, 5],
+            backgroundColor: [
+                'rgba(86, 243, 72, 0.3)',
+                'rgba(16, 103, 238, 0.3)',
+                'rgba(226, 122, 221, 0.3)',
+                'rgba(241, 47, 84, 0.3)',
+                'rgba(255, 255, 155, 0.3)',
+                'rgba(122, 60, 207, 0.3)'
+            ],
+            borderColor: [
+                'rgba(50, 50, 50, 1)',
+                'rgba(50, 50, 50, 1)',
+                'rgba(50, 50, 50, 1)',
+                'rgba(50, 50, 50, 1)',
+                'rgba(50, 50, 50, 1)',
+                'rgba(50, 50, 50, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+<h2>Version 3</h2>
+
+<p>For the final version I tried incorporating a label call back interaction when you would hover it would show the number of votes the data was presented for. However I couldnt get it to come together to output the data from the previous graphs thats why it says "0". -_-</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+<canvas id="myChart2" width="350" height="200"></canvas>
+<script>
+var ctx = document.getElementById('myChart2').getContext('2d');
+var myChart2 = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Xbox', 'Playstation', 'PC', 'Nintendo', 'Mobile', 'Board'],
+        datasets: [{
+            label: 'Gaming Platform Votes',
+            data: [11, 10, 14, 8, 6, 5],
+            backgroundColor: [
+                'rgba(86, 243, 72, 0.3)',
+                'rgba(16, 103, 238, 0.3)',
+                'rgba(226, 122, 221, 0.3)',
+                'rgba(241, 47, 84, 0.3)',
+                'rgba(191, 148, 216, 0.3)',
+                'rgba(122, 60, 207, 0.3)'
+            ],
+            borderColor: [
+                'rgba(50, 50, 50, 1)',
+                'rgba(50, 50, 50, 1)',
+                'rgba(50, 50, 50, 1)',
+                'rgba(50, 50, 50, 1)',
+                'rgba(50, 50, 50, 1)',
+                'rgba(50, 50, 50, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+          tooltips: {
+            callbacks: {
+                label: function(tooltipItem, data) {
+                    var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                    if (label) {
+                        label += ': ';
+                    }
+                    label += Math.round(tooltipItem.yLabel * 100) / 100;
+                    return label;
+                }
+            }
+        }
+    }
+});
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    
+;
+</script>
+
+
+</body>
+</html>
