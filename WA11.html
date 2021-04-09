@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script type="https://cdn.jsdelivr.net/npm/vega@3"></script>
+		<script type="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+		<script type="https://cdn.jsdelivr.net/npm/vega-embed@5"></script>
+	
+		<title>Weekly Assignment 11</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/moon.min.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/monokai.min.css" id="highlight-theme">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>Weekly Assignment 11</h3>
+					<p>By Noah Ortiz</p>
+				</section>
+
+				<section>
+					<p>Natural Disasters affect our world annually</p>
+					<p>Unfortunately deaths arise from these events</p>
+				</section>
+
+				<section>
+					<div id="vis"></div>
+					<script type="text/javascript">
+						
+						var spec = {
+  							"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  							"data": {
+   								"url": "data/disasters.csv"
+ 							 },
+  							"width": 600,
+  							"height": 400,
+  							"transform": [
+  							  {"filter": "datum.Entity !== 'All natural disasters'"}
+ 							 ],
+  							"mark": {
+   							 	"type": "circle",
+   							 	"opacity": 0.8,
+   							 	"stroke": "black",
+    							"strokeWidth": 1
+  							},
+  							"encoding": {
+  							  "x": {
+     						 	"field": "Year",
+    						  	"type": "temporal",
+    						  	"axis": {"grid": false}
+   							 },
+   							 "y": {"field": "Entity", "type": "nominal", "axis": {"title": ""}},
+   							 "size": {
+   							  	"field": "Deaths",
+    						  	"type": "quantitative",
+    						  	"title": "Annual Global Deaths",
+    						  	"legend": {"clipHeight": 30},
+    						  	"scale": {"rangeMax": 5000}
+   							 },
+   							 "color": {"field": "Entity", "type": "nominal", "legend": null}
+ 							 }
+							}
+						var opt = {"renderer": "canvas", "actions":false};
+
+						vegaEmbed("#vis", spec, opt);
+
+					</script>
+				</section>
+
+				<section>
+					<p>The best way to combat these natural disasters is by early detection warnings</p>
+					<p>The faster we are able to know about incoming disasters, the more time we have to make preperations to limit deaths.</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/highlight.min.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: 'h/v',
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealHighlight]
+			});
+		</script>
+	</body>
+</html>
