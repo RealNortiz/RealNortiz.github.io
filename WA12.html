@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>WA 12</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/moon.min.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/monokai.min.css" id="highlight-theme">
+
+		<!-- Loading Vega-->
+		<script src="https://cdn.jsdelivr.net/npm/vega@5.19.1"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.0.0"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.15.1"></script>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>WA 12</h3>
+					<p style="color:#ADE87C; font-weight:bold;">By Noah Ortiz</p>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Data Visualization #1</h2>
+						<p>For the first dataset i decided to use the barely.json file to show the different amount of barley yields that are brought in for their respective year.</p>
+					</section>
+
+					<section>
+						<h2>Barley Yields by Year</h2>
+						<div id="barley"></div>
+						<script type="text/javascript">
+						var spec = {
+							"width": 600,
+							"height": 500,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/barley.json"
+							},
+							"mark": "area",
+							"encoding": {
+								"x": { 
+									"type": "temporal",
+									"field": "year",
+									
+								},
+								"y": {
+									"field": "yield",
+									"type": "quantitative"
+								}
+							}
+						};
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#barley", spec, opt);
+						</script>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Data Visualization #2</h2>
+						<p>For this dataset i used the crimea.json and made a visualization for that since to be honest the other datasets i tried working with i was not able to get the data to work.</p>
+						
+					</section>
+
+					<section>
+						<h2>Data Visualization 2</h2>
+						<div id="crimea-bars"></div>
+						<script type="text/javascript">
+						var spec = {
+							"width": 300,
+							"height": 200,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/crimea.json"
+							},
+							"mark": {
+								"type": "bar",
+								"color": "orange"
+							},
+							"encoding" : {
+								"x": {
+									"field": "date",
+									"type": "temporal",
+									"title": "Date",
+									"axis": {
+										"titleFontSize": 25
+									}
+
+								},
+								"y": {
+									"field": "wounds",
+									"type" : "quantitative",
+									"title": "Number of wounded",
+									"axis": {
+										"titleFontSize": 25
+									}
+
+								}
+
+							}
+						};
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#crimea-bars", spec, opt);
+						</script>
+
+					</section>
+				</section>
+
+				
+
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/highlight.min.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: 'h/v',
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealHighlight ]
+			});
+		</script>
+	</body>
+</html>
